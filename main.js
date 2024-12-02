@@ -1,7 +1,5 @@
-// DOM Elements
 const app = document.getElementById("app");
 
-// Utils
 const navigateTo = (page) => {
   switch (page) {
     case "register":
@@ -16,13 +14,11 @@ const navigateTo = (page) => {
   }
 };
 
-// Check if user is logged in
 const checkAuth = () => {
   const loggedInUser = localStorage.getItem("loggedInUser");
   return loggedInUser ? JSON.parse(loggedInUser) : null;
 };
 
-// Render Register Page
 const renderRegister = () => {
   app.innerHTML = `
     <form id="registerForm">
@@ -58,7 +54,6 @@ const renderRegister = () => {
   });
 };
 
-// Render Login Page
 const renderLogin = () => {
   app.innerHTML = `
     <form id="loginForm">
@@ -93,7 +88,6 @@ const renderLogin = () => {
   });
 };
 
-// Render Home Page
 const renderHome = () => {
   const user = checkAuth();
   if (!user) {
@@ -114,7 +108,6 @@ const renderHome = () => {
   });
 };
 
-// Initial Render
 const init = () => {
   const user = checkAuth();
   navigateTo(user ? "home" : "login");
